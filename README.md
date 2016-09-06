@@ -5,4 +5,12 @@ android create project --target 1 --name androidrtc --path ./androidrtc --activi
 
 cd androidrtc && ant debug
 
-swig -java -package org.androidrtc -outdir src/org/androidrtc -o jni/androidrtc.c jni/androidrtc.i 
+swig -java -package org.androidrtc -outdir src/org/androidrtc -o jni/androidrtc_native_wrap.c jni/androidrtc_native.i
+
+ndk-build
+
+----------------------------------------------
+ 2518  ant debug
+ 2519  adb uninstall org.androidrtc
+ 2520  adb install bin/androidrtc-debug.apk 
+

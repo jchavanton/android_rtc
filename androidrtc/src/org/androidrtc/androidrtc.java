@@ -38,8 +38,15 @@ public class androidrtc extends Activity {
       });
     }
 
-    /** Calls into C/C++ code */
-    public void nativeCall() {
-        // TODO
-    }
+	/** static constructor */
+	static {
+		System.loadLibrary("androidrtc");
+	}
+
+	/** Calls into C/C++ code */
+	public void nativeCall() {
+		int started = androidrtc_native.create();
+		outputText.append("androidrtc.create() : "+ started +"\n");
+	}
+
 }
